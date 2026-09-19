@@ -1,7 +1,7 @@
 /* =====================================================================
    EDIT ME: your photos and collections
 
-   Photos: placed in /src/images/[slug]/
+   Photos: placed in /public/images/[slug]/
    ===================================================================== */
 
 export type Collection = {
@@ -23,10 +23,10 @@ export const COLLECTIONS: Collection[] = [
 
 export const BLURB = "A line or two about this trip goes here.";
 
-// Glob all images inside src/images/
-const globbedImages = import.meta.glob<{ default: string }>(
-  "/src/images/*/*.{png,jpg,jpeg,webp,avif,gif,PNG,JPG,JPEG,WEBP,AVIF,GIF}",
-  { eager: true }
+// Glob all images inside /public/images/ without eager module imports ({ query: '?url' })
+const globbedImages = import.meta.glob(
+  "/public/images/*/*.{png,jpg,jpeg,webp,avif,gif,PNG,JPG,JPEG,WEBP,AVIF,GIF}",
+  { eager: true, query: "?url", import: "default" }
 );
 
 function autoPopulateGalleries(): Record<string, string[]> {
@@ -37,14 +37,19 @@ function autoPopulateGalleries(): Record<string, string[]> {
     galleries[slug] = [];
   });
 
-  Object.entries(globbedImages).forEach(([filePath, module]) => {
+  Object.keys(globbedImages).forEach((filePath) => {
     const normalizedPath = filePath.replace(/\\/g, "/");
-    const match = normalizedPath.match(/\/images\/([^/]+)\//);
+    
+    // Extract collection slug and filename
+    const match = normalizedPath.match(/\/public\/images\/([^/]+)\/(.+)$/);
 
     if (match && match[1]) {
       const slug = match[1];
+      const fileName = match[2];
+
       if (galleries[slug]) {
-        galleries[slug].push(module.default);
+        // Map to public web path: /images/[slug]/filename.jpg
+        galleries[slug].push(`/images/${slug}/${fileName}`);
       }
     }
   });
@@ -59,18 +64,18 @@ function autoPopulateGalleries(): Record<string, string[]> {
 
 export const IMAGES = {
   /** Home hero */
-  hero: "/src/images/hero.jpg",
+  hero: "/images/hero.jpg",
 
   /** The 3 photos on the home page, keyed by the collection they link to */
   picks: {
-    morocco: "",
-    "washington-state": "",
-    "kolkata-hyderabad": "",
+    morocco: "/images/morocco/pick.jpg",
+    "washington-state": "/images/washington-state/pick.jpg",
+    "kolkata-hyderabad": "/images/kolkata-hyderabad/pick.jpg",
   } as Record<string, string>,
 
-  about: "",
+  about: "/images/about.jpg",
 
-  /** Automatically populated from src/images/[cityname] */
+  /** Automatically populated from public/images/[slug] */
   galleries: autoPopulateGalleries(),
 };
 
