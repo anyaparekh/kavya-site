@@ -132,7 +132,6 @@ img { display: block; max-width: 100%; }
 /* ---------- Home: hero ---------- */
 .hero {
   position: relative; isolation: isolate;
-  min-height: 100vh; min-height: 100svh;
   display: flex; flex-direction: column; justify-content: flex-end;
   color: #FCF9F3;
 }
@@ -207,3 +206,11 @@ footer { background: var(--bg); border-top: 1px solid var(--line); padding: 1.5r
   .about { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+.hero .ph img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}

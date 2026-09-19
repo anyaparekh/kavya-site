@@ -1,19 +1,45 @@
-import type { CSSProperties } from "react";
+import React from "react";
 
-type Props = {
-  /** Image path/URL. Leave empty to show a placeholder rectangle. */
-  src?: string;
-  /** Used as the alt text, and as the label printed on the placeholder. */
-  label: string;
-  /** CSS aspect-ratio, e.g. "3/2" */
+export interface PhotoProps {
+  /** Source URL or path for the image */
+  src: string;
+  /** Alt text for accessibility */
+  label?: string;
+  /** CSS aspect-ratio value (e.g. "16/9", "4/3", "4/5") */
   ratio?: string;
-};
+  /** Additional custom CSS class names */
+  className?: string;
+}
 
-export default function Photo({ src, label, ratio }: Props) {
-  const style = (ratio ? { "--r": ratio } : undefined) as CSSProperties | undefined;
+export const Photo: React.FC<PhotoProps> = ({
+  src,
+  label = "",
+  ratio,
+  className = "",
+}) => {
   return (
-    <div className={`ph${src ? " has-img" : ""}`} data-label={label} style={style}>
-      {src && <img src={src} alt={label} loading="lazy" />}
+    <div
+      className={`photo-container ${className}`}
+      style={{
+        width: "100%",
+        position: "relative",
+        overflow: "hidden",
+        aspectRatio: ratio,
+      }}
+    >
+      <img
+        src={src}
+        alt={label}
+        loading="lazy"
+        style={{
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          display: "block",
+        }}
+      />
     </div>
   );
-}
+};
+
+export default Photo;
