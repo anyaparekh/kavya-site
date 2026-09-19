@@ -1,24 +1,21 @@
-import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-export function Dot() {
-  return <i className="dot" aria-hidden="true" />;
-}
-
-/** The brown full-width link bar ("See more!", "Next: ..."). */
-export default function Bar({
-  to,
-  children,
-  className = "",
-}: {
+type BarProps = {
   to: string;
-  children: ReactNode;
   className?: string;
-}) {
+  children: React.ReactNode;
+};
+
+export default function Bar({ to, className = "", children }: BarProps) {
   return (
-    <Link className={`bar ${className}`.trim()} to={to}>
+    <Link to={to} className={`bar ${className}`}>
+      {/* Viewfinder corners */}
+      <span className="c c1" aria-hidden="true" />
+      <span className="c c2" aria-hidden="true" />
+      <span className="c c3" aria-hidden="true" />
+      <span className="c c4" aria-hidden="true" />
+
       <span>{children}</span>
-      <Dot />
     </Link>
   );
 }

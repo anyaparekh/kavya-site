@@ -25,43 +25,21 @@ export default function Home() {
   usePageTitle("Kavya — Visual Journeys");
   return (
     <>
-      {/* Section 1: hero with full original typography styles */}
-      <section
-        className="hero"
-        aria-label="Featured photo"
-        style={{ position: "relative", minHeight: "auto", display: "block" }}
-      >
+      {/* Section 1: hero */}
+      <section className="hero" aria-label="Featured photo">
         {/* Top Header */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            zIndex: 10,
-          }}
-        >
-          <Header />
+        <Header />
+
+        {/* Hero Photo Background */}
+        <div className="hero-photo">
+          <Photo
+            src={IMAGES.hero}
+            label="Hero photo: Aït Ben Haddou, people crossing the river"
+          />
         </div>
 
-        {/* Hero Photo */}
-        <Photo
-          src={IMAGES.hero}
-          label="Hero photo: Aït Ben Haddou, people crossing the river"
-        />
-
-        {/* Text using pure stylesheet hero-body and h1 styling */}
-        <div
-          className="hero-body"
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            zIndex: 5,
-            pointerEvents: "none",
-          }}
-        >
+        {/* Hero Title */}
+        <div className="hero-body">
           <h1>Visual Journeys</h1>
         </div>
       </section>
@@ -77,9 +55,10 @@ export default function Home() {
             tag="Washington State"
           />
           <Pick slug="kolkata-hyderabad" cls="c" ratio="3/4" tag="Hyderabad" />
-          <Bar to="/collections" className="more">
-            See more!
-          </Bar>
+
+          <div className="more-wrap">
+            <Bar to="/collections">See more!</Bar>
+          </div>
         </div>
       </section>
     </>

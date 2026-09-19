@@ -21,7 +21,6 @@ export default function Location() {
       <section className="band">
         <Header />
         <h1>{collection.name}</h1>
-        <p>{collection.blurb ?? BLURB}</p>
       </section>
 
       <section

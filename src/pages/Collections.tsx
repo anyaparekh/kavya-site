@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
-import { Dot } from "../components/Bar";
 import { COLLECTIONS } from "../data";
 import { usePageTitle } from "../hooks";
 
@@ -20,7 +19,6 @@ export default function Collections() {
             <li key={c.slug}>
               <Link to={`/${c.slug}`}>
                 <span className="name">{c.name}</span>
-                <Dot />
               </Link>
             </li>
           ))}
