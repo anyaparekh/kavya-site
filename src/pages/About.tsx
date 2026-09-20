@@ -10,14 +10,15 @@ export default function About() {
       <section className="band">
         <Header />
         <h1>About</h1>
-        <p>The person behind the photos.</p>
       </section>
 
       <section className="about">
         <Photo src={IMAGES.about} label="Portrait of Kavya" ratio="4/5" />
         <div>
-          <p>Hi, I'm Kavya. These are photos from places I've traveled and places I've called home.</p>
-          <p>Replace this with your own story.</p>
+          <p>
+            Hi, I'm Kavya. These are photos from places I've traveled and places
+            I've called home.
+          </p>
         </div>
       </section>
     </>

@@ -18,7 +18,7 @@ export const COLLECTIONS: Collection[] = [
   { slug: "dc-virginia", name: "DC and Virginia" },
   { slug: "maine-boston", name: "Maine and Boston" },
   { slug: "cdmx", name: "CDMX" },
-  { slug: "singapore", name: "Singapore" },
+  { slug: "europe", name: "Europe" },
 ];
 
 // Glob all images inside /public/images/ without eager module imports ({ query: '?url' })
@@ -66,8 +66,8 @@ export const IMAGES = {
 
   /** The 3 photos on the home page, keyed by the collection they link to */
   picks: {
-    morocco: "/images/morocco/pick.jpg",
-    "washington": "/images/washington-state/pick.jpg",
+    morocco: "/images/morocco/pick.JPG",
+    "washington-state": "/images/washington-state/pick.JPG",
     "kolkata-hyderabad": "/images/kolkata-hyderabad/pick.jpg",
   } as Record<string, string>,
 

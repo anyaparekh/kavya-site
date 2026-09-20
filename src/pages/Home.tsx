@@ -10,11 +10,16 @@ type PickProps = {
   cls: "a" | "b" | "c";
   ratio: string;
   tag: string;
+  width?: string;
 };
 
-function Pick({ slug, cls, ratio, tag }: PickProps) {
+function Pick({ slug, cls, ratio, tag, width }: PickProps) {
   return (
-    <Link className={`pick pick-${cls}`} to={`/${slug}`}>
+    <Link
+      className={`pick pick-${cls}`}
+      to={`/${slug}`}
+      style={width ? { width } : undefined}
+    >
       <Photo src={IMAGES.picks[slug]} label={`${tag} photo`} ratio={ratio} />
       <span className="tag">{tag}</span>
     </Link>
@@ -51,8 +56,9 @@ export default function Home() {
           <Pick
             slug="washington-state"
             cls="b"
-            ratio="4/3"
+            ratio="4/4"
             tag="Washington State"
+            width="130%"
           />
           <Pick slug="kolkata-hyderabad" cls="c" ratio="3/4" tag="Hyderabad" />
 
