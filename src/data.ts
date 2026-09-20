@@ -13,15 +13,13 @@ export type Collection = {
 /** Order here = order on the Collections page and in the dropdown menu. */
 export const COLLECTIONS: Collection[] = [
   { slug: "morocco", name: "Morocco" },
-  { slug: "washington-state", name: "Washington State" },
+  { slug: "washington-state", name: "Washington" },
   { slug: "kolkata-hyderabad", name: "Kolkata and Hyderabad" },
   { slug: "dc-virginia", name: "DC and Virginia" },
   { slug: "maine-boston", name: "Maine and Boston" },
   { slug: "cdmx", name: "CDMX" },
   { slug: "singapore", name: "Singapore" },
 ];
-
-export const BLURB = "A line or two about this trip goes here.";
 
 // Glob all images inside /public/images/ without eager module imports ({ query: '?url' })
 const globbedImages = import.meta.glob(
@@ -69,7 +67,7 @@ export const IMAGES = {
   /** The 3 photos on the home page, keyed by the collection they link to */
   picks: {
     morocco: "/images/morocco/pick.jpg",
-    "washington-state": "/images/washington-state/pick.jpg",
+    "washington": "/images/washington-state/pick.jpg",
     "kolkata-hyderabad": "/images/kolkata-hyderabad/pick.jpg",
   } as Record<string, string>,
 

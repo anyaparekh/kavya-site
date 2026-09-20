@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Bar from "../components/Bar";
-import { BLURB, COLLECTIONS, IMAGES } from "../data";
+import { COLLECTIONS, IMAGES } from "../data";
 import { usePageTitle } from "../hooks";
 import NotFound from "./NotFound";
 
