@@ -18,7 +18,7 @@ export const COLLECTIONS: Collection[] = [
   { slug: "dc-virginia", name: "DC and Virginia" },
   { slug: "maine-boston", name: "Maine and Boston" },
   { slug: "cdmx", name: "CDMX" },
-  { slug: "europe", name: "Europe" },
+  { slug: "europe", name: "Prague, Budapest, and Croatia" },
 ];
 
 // Glob all images inside /public/images/ without eager module imports ({ query: '?url' })
@@ -44,8 +44,7 @@ function autoPopulateGalleries(): Record<string, string[]> {
     if (match && match[1]) {
       const slug = match[1];
       const fileName = match[2];
-
-      if (galleries[slug]) {
+      if (!fileName.startsWith("pick.") && galleries[slug]) {
         // Map to public web path: /images/[slug]/filename.jpg
         galleries[slug].push(`/images/${slug}/${fileName}`);
       }
@@ -68,7 +67,7 @@ export const IMAGES = {
   picks: {
     morocco: "/images/morocco/pick.JPG",
     "washington-state": "/images/washington-state/pick.JPG",
-    "kolkata-hyderabad": "/images/kolkata-hyderabad/pick.jpg",
+    "kolkata-hyderabad": "/images/kolkata-hyderabad/2026-09-19_14-32-12_882.jpeg",
   } as Record<string, string>,
 
   about: "/images/about.jpg",

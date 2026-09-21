@@ -15,7 +15,7 @@ type PickProps = {
 
 function Pick({ slug, cls, ratio, tag }: PickProps) {
   return (
-    <Link className={`pick pick-${cls}`} to={`/${slug}`}>
+    <Link className={`pick pick-${cls} pick-${slug}`} to={`/${slug}`}>
       <Photo src={IMAGES.picks[slug]} label={`${tag} photo`} ratio={ratio} />
       <span className="tag">{tag}</span>
     </Link>
@@ -51,11 +51,16 @@ export default function Home() {
           <Pick slug="morocco" cls="a" ratio="16/9" tag="Morocco" />
           <Pick
             slug="washington-state"
-            cls="b"
-            ratio="5/6"
+            cls="c"
+            ratio="3/4"
             tag="Washington State"
           />
-          <Pick slug="kolkata-hyderabad" cls="c" ratio="3/4" tag="Hyderabad" />
+          <Pick
+            slug="kolkata-hyderabad"
+            cls="b"
+            ratio="5/6"
+            tag="Kolkata and Hyderabad"
+          />
 
           <div className="more-wrap">
             <Bar to="/collections">See more!</Bar>
