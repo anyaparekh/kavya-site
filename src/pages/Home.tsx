@@ -7,7 +7,7 @@ import { usePageTitle } from "../hooks";
 
 type PickProps = {
   slug: string;
-  cls: "a" | "b" | "c";
+  cls: "a" | "b" | "c" | "d";
   ratio: string;
   tag: string;
   width?: string;
@@ -49,12 +49,15 @@ export default function Home() {
       <section className="picks" aria-label="Selected collections">
         <div className="picks-grid">
           <Pick slug="morocco" cls="a" ratio="16/9" tag="Morocco" />
-          <Pick
-            slug="washington-state"
-            cls="c"
-            ratio="3/4"
-            tag="Washington State"
-          />
+          <div className="pick-col-right">
+            <Pick
+              slug="washington-state"
+              cls="c"
+              ratio="3/4"
+              tag="Washington State"
+            />
+            <Pick slug="cdmx" cls="d" ratio="4/3" tag="CDMX" />
+          </div>
           <Pick
             slug="kolkata-hyderabad"
             cls="b"

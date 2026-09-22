@@ -68,6 +68,7 @@ export const IMAGES = {
     morocco: "/images/morocco/pick.JPG",
     "washington-state": "/images/washington-state/pick.JPG",
     "kolkata-hyderabad": "/images/kolkata-hyderabad/2026-09-19_14-32-12_882.jpeg",
+    cdmx: "/images/cdmx/2026-09-18_23-42-04_707.jpeg",
   } as Record<string, string>,
 
   about: "/images/about.jpg",
