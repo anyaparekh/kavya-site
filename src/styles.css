@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+
 /* ---------- Tokens ---------- */
 :root {
   --bg: #FCF9F3;          /* page cream */
@@ -18,12 +20,12 @@
   --focus: #5C4520;
   --pad: clamp(1rem, 3vw, 3rem);
   
-  /* Serif fonts assigned to both sans and serif tokens for full-site coverage */
-  --sans: Georgia, serif;
-  --serif: Georgia, serif;
+  /* Montserrat is used throughout; display headers use the light weight. */
+  --sans: "Montserrat", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "Montserrat", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 
-  /* Big display titles (home hero + page headers). Loaded in index.html. */
-  --title: "Questrial", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* Main display headers */
+  --title: "Montserrat", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 /* Dark mode follows the visitor's system setting */
@@ -211,7 +213,7 @@ img { display: block; max-width: 100%; }
 .hero h1 { 
   margin: 0; 
   font-family: var(--title);
-  font-weight: 400; /* Questrial only ships one weight */
+  font-weight: 300;
   font-size: clamp(2.2rem, 9.7vw, 14rem); 
   line-height: .95; 
   letter-spacing: -.035em; 
@@ -260,7 +262,7 @@ img { display: block; max-width: 100%; }
   padding: clamp(7rem, 14vw, 11rem) var(--pad) clamp(2rem, 4vw, 3.5rem);
   display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1rem clamp(2rem, 8vw, 9rem);
 }
-.band h1 { margin: 0; margin-top: 2rem; font-family: var(--title); font-weight: 400; color: var(--brown); font-size: clamp(3.5rem, 11vw, 12.5rem); line-height: .92; letter-spacing: -.035em; }
+.band h1 { margin: 0; margin-top: 2rem; font-family: var(--title); font-weight: 300; color: var(--brown); font-size: clamp(3.5rem, 11vw, 12.5rem); line-height: .92; letter-spacing: -.035em; }
 .band p { margin: 0 0 1.1rem; color: var(--brown); font-size: 1.15rem; max-width: 22rem; }
 
 /* ---------- Collections list ---------- */
